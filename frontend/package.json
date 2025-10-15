@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "postbuild": "node ./node_modules/@netlify/next",
     "start": "next start"
   },
   "dependencies": {
