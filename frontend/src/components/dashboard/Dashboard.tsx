@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calendar, ChevronRight, Facebook, Instagram, Mail, Award } from 'lucide-react';
+import Informations from "../informations/Informations";
 
 export default function Dashboard() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -78,6 +79,9 @@ export default function Dashboard() {
 
                         {/* Desktop Menu - LARGER & MORE VISIBLE */}
                         <div className="hidden lg:flex items-center space-x-2">
+                            <a href="#onas" className="px-6 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
+                                O Nas
+                            </a>
                             <a href="#uslugi" className="px-6 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
                                 Usługi
                             </a>
@@ -87,10 +91,13 @@ export default function Dashboard() {
                             <a href="#galeria" className="px-6 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
                                 Galeria
                             </a>
-                            <a href="#opinie" className="px-6 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
+                            <a href="#opinie" className="px-5 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
                                 Opinie
                             </a>
-                            <a href="#kontakt" className="px-6 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
+                            <a href="#aktualnosci" className="px-5 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
+                                Aktualności
+                            </a>
+                            <a href="#kontakt" className="px-5 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
                                 Kontakt
                             </a>
                             <a
@@ -114,6 +121,9 @@ export default function Dashboard() {
                     {/* Mobile Menu */}
                     {mobileMenuOpen && (
                         <div className="lg:hidden py-6 space-y-2 border-t-2 border-pink-100 bg-white">
+                            <a href="#onas" className="block py-3 px-4 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg">
+                               O Nas
+                            </a>
                             <a href="#uslugi" className="block py-3 px-4 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg">
                                 Usługi
                             </a>
@@ -125,6 +135,9 @@ export default function Dashboard() {
                             </a>
                             <a href="#opinie" className="block py-3 px-4 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg">
                                 Opinie
+                            </a>
+                            <a href="#aktualnosci" className="block py-3 px-4 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg">
+                                Aktualności
                             </a>
                             <a href="#kontakt" className="block py-3 px-4 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg">
                                 Kontakt
@@ -145,17 +158,24 @@ export default function Dashboard() {
             <div className="h-24"></div>
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden pt-12">
+            <section id="onas" className="relative overflow-hidden pt-12">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
-                            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                            <h1 className="text-5xl md:text-5xl font-bold text-gray-900 leading-tight">
                                 Twój pupil zasługuje na
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500"> najlepszą </span>
                                 pielęgnację
                             </h1>
-                            <p className="text-xl text-gray-600">
-                                Profesjonalny grooming w komfortowej atmosferze. Zadbamy o Twojego pupila z pasją i miłością do zwierząt.
+                            <p className="text-gray-600 text-lg leading-relaxed">
+                                W 2012 roku, z pasji do zwierząt i przekonania, że każdy pupil zasługuje na wyjątkową troskę,
+                                narodził się salon Mobi. Dzisiaj jesteśmy rozpoznawalnym salonem pielęgnacji psów, któremu zaufało ponad 1000 właścicieli.
+                            </p>
+                            <p className="text-gray-600 text-lg leading-relaxed">
+                                Przez 13 lat nie tylko doskonaliliśmy nasze umiejętności, ale przede wszystkim budowaliśmy
+                                relacje oparte na zaufaniu. Każdy pies, który przekracza próg naszego salonu, jest traktowany
+                                jak członek rodziny. Wiemy, że to wyjątkowe miejsce – pełne cierpliwości, spokoju
+                                i profesjonalizmu.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a href="tel:+48690011396" className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
@@ -347,6 +367,9 @@ export default function Dashboard() {
                 </div>
             </section>
 
+            {/* News Section */}
+            <Informations />
+
             {/* Contact Section */}
             <section id="kontakt" className="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -456,6 +479,7 @@ export default function Dashboard() {
                         <div>
                             <h4 className="font-bold mb-4">Nawigacja</h4>
                             <ul className="space-y-2 text-gray-400 text-sm">
+                                <li><a href="#onas" className="hover:text-pink-400 transition">O Nas</a></li>
                                 <li><a href="#uslugi" className="hover:text-pink-400 transition">Usługi</a></li>
                                 <li><a href="#certyfikaty" className="hover:text-pink-400 transition">Certyfikaty</a></li>
                                 <li><a href="#galeria" className="hover:text-pink-400 transition">Galeria</a></li>
