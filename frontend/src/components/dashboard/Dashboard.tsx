@@ -52,8 +52,8 @@ export default function Dashboard() {
     ];
 
     const stats = [
-        { number: "2000+", label: "Zadowolonych pupili" },
-        { number: "5 lat", label: "Doświadczenia" },
+        { number: "1000+", label: "Zadowolonych pupili" },
+        { number: "13 lat", label: "Doświadczenia" },
         { number: "100%", label: "Miłości do zwierząt" }
     ];
 
@@ -94,11 +94,11 @@ export default function Dashboard() {
                                 Kontakt
                             </a>
                             <a
-                                href="tel:+48123456789"
+                                href="tel:+48690011396"
                                 className="ml-4 flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
                             >
                                 <Phone className="w-5 h-5" />
-                                <span>123 456 789</span>
+                                <span>690 011 396</span>
                             </a>
                         </div>
 
@@ -130,11 +130,11 @@ export default function Dashboard() {
                                 Kontakt
                             </a>
                             <a
-                                href="tel:+48123456789"
+                                href="tel:+48690011396"
                                 className="flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold mt-4"
                             >
                                 <Phone className="w-5 h-5" />
-                                <span>123 456 789</span>
+                                <span>690 011 396</span>
                             </a>
                         </div>
                     )}
@@ -158,13 +158,9 @@ export default function Dashboard() {
                                 Profesjonalny grooming w komfortowej atmosferze. Zadbamy o Twojego pupila z pasją i miłością do zwierząt.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="#kontakt" className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
-                                    <Calendar className="w-5 h-5" />
-                                    <span>Umów wizytę</span>
-                                </a>
-                                <a href="tel:+48123456789" className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold text-lg shadow-md hover:shadow-lg transition border-2 border-gray-200 flex items-center justify-center space-x-2">
+                                <a href="tel:+48690011396" className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
                                     <Phone className="w-5 h-5" />
-                                    <span>Zadzwoń teraz</span>
+                                    <span>Umów wizytę</span>
                                 </a>
                             </div>
                         </div>
@@ -270,7 +266,7 @@ export default function Dashboard() {
                                 <Star className="w-8 h-8 text-blue-500" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Doświadczenie</h3>
-                            <p className="text-gray-600">5 lat praktyki i setki zadowolonych klientów. Twój pupil jest w dobrych rękach.</p>
+                            <p className="text-gray-600">13 lat praktyki i setki zadowolonych klientów. Twój pupil jest w dobrych rękach.</p>
                         </div>
                     </div>
                 </div>
@@ -372,8 +368,8 @@ export default function Dashboard() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 mb-1">Telefon</h3>
-                                    <a href="tel:+48123456789" className="text-pink-500 hover:text-pink-600 transition">
-                                        +48 123 456 789
+                                    <a href="tel:+48690011396" className="text-pink-500 hover:text-pink-600 transition">
+                                        +48 690 011 396
                                     </a>
                                 </div>
                             </div>
@@ -396,7 +392,7 @@ export default function Dashboard() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 mb-1">Adres</h3>
-                                    <p className="text-gray-600">ul. Przykładowa 123<br />00-001 Warszawa</p>
+                                    <p className="text-gray-600">ul. Szczecińska 26A<br />73-110 Stargard</p>
                                 </div>
                             </div>
 
@@ -416,10 +412,10 @@ export default function Dashboard() {
 
                             {/* Social Media */}
                             <div className="flex space-x-4 pt-6">
-                                <a href="#" className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition transform hover:scale-110">
+                                <a href="https://www.facebook.com/MOBISalonikPielegnacjiPsow" target="_blank" className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition transform hover:scale-110">
                                     <Facebook className="w-6 h-6" />
                                 </a>
-                                <a href="#" className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition transform hover:scale-110">
+                                <a href="https://www.instagram.com/mobi_salon_pielegnacji_psow" target="_blank" className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition transform hover:scale-110">
                                     <Instagram className="w-6 h-6" />
                                 </a>
                             </div>
@@ -481,23 +477,23 @@ export default function Dashboard() {
                         <div>
                             <h4 className="font-bold mb-4">Kontakt</h4>
                             <ul className="space-y-2 text-gray-400 text-sm">
-                                <li>+48 123 456 789</li>
+                                <li>+48 690 011 396</li>
                                 <li>kontakt@mobi-grooming.pl</li>
-                                <li>ul. Przykładowa 123</li>
-                                <li>00-001 Warszawa</li>
+                                <li>ul. Szczecińska 26A</li>
+                                <li>73-110 Stargard</li>
                             </ul>
                         </div>
                     </div>
 
                     <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-                        <p>© 2024 Mobi Grooming Salon. Wszystkie prawa zastrzeżone.</p>
+                        <p>© 2025 Mobi Grooming Salon. Wszystkie prawa zastrzeżone.</p>
                     </div>
                 </div>
             </footer>
 
             {/* Floating CTA Button */}
             <a
-                href="tel:+48123456789"
+                href="tel:+48690011396"
                 className="fixed bottom-6 right-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition transform hover:scale-110 z-50 flex items-center space-x-3"
             >
                 <Phone className="w-6 h-6" />
