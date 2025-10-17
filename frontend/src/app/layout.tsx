@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-        <link rel="icon" href="https://github.com/Crusty-IT/mobi-grooming/blob/main/frontend/public/pictures/logo.jpg?raw=true" />
+        <link rel="icon" href="https://github.com/Crusty-IT/mobi-grooming/blob/main/frontend/public/pictures/around.jpg?raw=true" />
     </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
