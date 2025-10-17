@@ -170,8 +170,8 @@ export default function Informations() {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Aktualności
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Tutaj znajdziesz najnowsze informacje o dostępności usług, urlopach i zmianach w harmonogramie.
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-xl">
+            Tutaj znajdziesz najnowsze informacje o dostępności usług, urlopach i zmianach w harmonogramie
           </p>
         </div>
 

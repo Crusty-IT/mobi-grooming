@@ -344,7 +344,7 @@ export default function Dashboard() {
                             Co mówią nasi klienci
                         </h2>
                         <p className="text-xl text-gray-600">
-                            Zaufało nam ponad 2000 właścicieli pupili
+                            Zaufało nam ponad 1000 właścicieli pupili
                         </p>
                     </div>
 
