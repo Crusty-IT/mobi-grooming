@@ -3,32 +3,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Calendar as CalendarIcon, Info, AlertCircle } from "lucide-react";
 
-// Lightweight client component for rendering announcements fetched from API
-function AnnouncementsList() {
-  const [items, setItems] = useState<Array<{ slug: string; title: string; date?: string; body: string }>>([]);
-  const [err, setErr] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      try {
-        const res = await fetch('/api/announcements', { cache: 'no-store' });
-        if (!res.ok) throw new Error('Nie udało się pobrać ogłoszeń');
-        const json = await res.json();
-        if (!cancelled) setItems(Array.isArray(json?.entries) ? json.entries : []);
-      } catch (e: any) {
-        if (!cancelled) setErr(e?.message ?? 'Błąd wczytywania ogłoszeń');
-      }
-    }
-    load();
-    return () => { cancelled = true; }
-  }, []);
-
-  if (err) {
-    return <p className="text-red-600">{err}</p>;
-  }
-
-  if (items.length === 0) {
+// Client-side list renderer that receives pre-fetched announcements from server as props
+function AnnouncementsList({ items }: { items: Array<{ slug: string; title: string; date?: string; body: string }> }) {
+  if (!items || items.length === 0) {
     return <p className="text-gray-500">Brak ogłoszeń.</p>;
   }
 
@@ -175,7 +152,7 @@ function AvailabilityCalendar({
   );
 }
 
-export default function Informations() {
+export default function Informations({ announcements }: { announcements: Array<{ slug: string; title: string; date?: string; body: string }> }) {
   // For now, attempt to fetch unavailable dates from a public JSON produced by Decap CMS build
   // e.g. public/data/unavailable.json with entries: [{ date: "2025-10-17", note: "Urlop" }]
   const [data, setData] = useState<UnavailabilityEntry[]>([]);
@@ -273,8 +250,8 @@ export default function Informations() {
               <h3 className="text-xl font-semibold text-gray-800">Komunikaty</h3>
             </div>
             <div className="prose prose-pink max-w-none text-gray-700">
-              {/* Lista ogłoszeń z Decap CMS (Markdown wczytywany przez API podczas budowy/serwera) */}
-              <AnnouncementsList />
+              {/* Lista ogłoszeń z Decap CMS (Markdown wczytywany przez serwer podczas budowy) */}
+              <AnnouncementsList items={announcements} />
             </div>
           </div>
         </div>

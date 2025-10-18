@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calendar, ChevronRight, Facebook, Instagram, Mail, Award } from 'lucide-react';
 import Informations from "../informations/Informations";
 
-export default function Dashboard() {
+export default function Dashboard({ announcements }: { announcements: Array<{ slug: string; title: string; date?: string; body: string }> }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const services = [
@@ -368,7 +368,7 @@ export default function Dashboard() {
             </section>
 
             {/* News Section */}
-            <Informations />
+            <Informations announcements={announcements} />
 
             {/* Contact Section */}
             <section id="kontakt" className="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
