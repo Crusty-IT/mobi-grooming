@@ -1,0 +1,108 @@
+/* ---------- Resety i podstawa ---------- */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* wyłącz poziomy scroll */
+}
+.nc-app, .nc-app * {
+    box-sizing: border-box;
+}
+
+/* ---------- Usprawnienia ogólne ---------- */
+@media (max-width: 1024px) {
+    /* szeroko na średnich ekranach */
+    .nc-app input, .nc-app select, .nc-app textarea, .nc-app .CodeMirror,
+    .nc-app .cms-editor-visual, .nc-app .cms-editor-raw,
+    .nc-app [class*="EditorControl"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* ---------- Układ: 1 kolumna na mobile ---------- */
+@media (max-width: 768px) {
+    /* Lewy panel i prawa część – ułóż w kolumnę */
+    .nc-app [class*="CollectionPage"] {
+        display: block !important;
+    }
+    .nc-app [class*="CollectionPage-sidebar"],
+    .nc-app [class*="collectionPage-sidebar"],
+    .nc-app [class*="Sidebar"],
+    .nc-app [class*="sidebar"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        margin-bottom: 12px !important;
+    }
+    .nc-app [class*="CollectionPage-main"],
+    .nc-app [class*="collectionPage-main"],
+    .nc-app [class*="Editor"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    /* Siatki kart/wpisów w jednej kolumnie */
+    .nc-app [class*="CardGrid"],
+    .nc-app [class*="EntryListing"],
+    .nc-app [class*="collectionGrid"],
+    .nc-app [class*="grid"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* SplitPane (czasem używany) – wyłącz dzielnik i szerokość */
+    .nc-app .SplitPane, .nc-app .ReactSplitPane {
+        position: static !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+    .nc-app .Pane {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .nc-app .Resizer {
+        display: none !important;
+    }
+
+    /* Formularze na pełną szerokość */
+    .nc-app input[type="text"],
+    .nc-app input[type="search"],
+    .nc-app input[type="url"],
+    .nc-app input[type="number"],
+    .nc-app input[type="date"],
+    .nc-app input[type="time"],
+    .nc-app input[type="datetime-local"],
+    .nc-app textarea,
+    .nc-app .CodeMirror,
+    .nc-app .cms-editor-visual,
+    .nc-app .cms-editor-raw,
+    .nc-app [class*="EditorControl"] {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Pasek narzędzi edytora zawsze widoczny u góry */
+    .nc-app [class*="EditorToolbar"] {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+    }
+
+    /* Biblioteka mediów – pełna szerokość viewportu */
+    .nc-app [class*="MediaLibrary"] {
+        left: 0 !important;
+        right: 0 !important;
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+}
+
+/* ---------- Fallback: bardzo wąskie ekrany (skalowanie) ---------- */
+/* Jeśli coś nadal się nie mieści (np. <420px), “oddal” UI */
+@media (max-width: 420px) {
+    .nc-app {
+        transform: scale(0.92);
+        transform-origin: top left;
+        width: 108.7%;
+    }
+}

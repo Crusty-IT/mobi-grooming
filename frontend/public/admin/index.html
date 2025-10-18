@@ -2,13 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Zarządzanie Dostępnością CMS</title>
-    <!-- 1. Dodaj skrypt Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-<!-- 2. Skrypt ładujący Decap CMS pozostaje bez zmian -->
-<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+<script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+
+<!-- Wstrzykujemy CSS po CMS, żeby nasze style miały pierwszeństwo -->
+<script>
+    (function () {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = './cms-overrides.css';
+        document.head.appendChild(link);
+    })();
+</script>
 </body>
 </html>
