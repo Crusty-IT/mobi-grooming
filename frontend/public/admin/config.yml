@@ -14,44 +14,37 @@ media_folder: "frontend/public/pictures/uploads"  # Ścieżka względem katalogu
 public_folder: "/pictures/uploads"       # Ścieżka publiczna (URL)
 
 # --- KOLEKCJE TREŚCI ---
-collections:
+# ... (backend, publish_mode, media_folder) ...
 
-  # 1. KOLEKCJA JSON: Dostępność Kalendarza
-  # Definiuje jeden plik do przechowywania listy dat niedostępności (wymagany przez komponent React)
+# --- KOLEKCJE TREŚCI ---
+collections: # Ta linia jest na zerowym poziomie wcięcia
+
+  # Pierwszy element listy kolekcji (myślnik)
   - name: "availability"
     label: "Kalendarz Dostępności"
     files:
-  - label: "Lista Dat Niedostępności"
-    name: "entries"
-    widget: "list"
-    summary: "{{start}} → {{end}} — {{note}}"
-    fields:
-      - label: "Od"
-        name: "start"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        format: "YYYY-MM-DD"
-      - label: "Do"
-        name: "end"
-        widget: "datetime"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        format: "YYYY-MM-DD"
-      - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
+      - label: "Dni Niedostępne"
+        name: "unavailable_dates"
+        file: "frontend/public/data/unavailable.json"
+        format: "json"
+        fields:
+          - label: "Lista Dat Niedostępności"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: true } # Twoja ostatnia, poprawna zmiana
+              - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
 
-  # 2. KOLEKCJA MARKDOWN: Ogłoszenia i Komunikaty
-  # Definiuje folder, w którym możesz tworzyć wiele wpisów (postów/komunikatów)
+  # Drugi element listy kolekcji (myślnik)
+  # !!! WAŻNE: Ten myślnik musi być na DOKŁADNIE tym samym poziomie wcięcia co myślnik powyżej !!!
   - name: "announcements"
     label: "Ogłoszenia i Komunikaty"
-    # To jest folder, w którym powstaną pliki .md (np. frontend/src/content/announcements/2025-10-18-urlop.md)
     folder: "frontend/src/content/announcements"
-    create: true # Pozwala tworzyć nowe wpisy
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Format nazwy pliku
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     sortable_fields: ['date', 'title']
-
     fields:
       - { label: "Tytuł Ogłoszenia", name: "title", widget: "string" }
       - { label: "Data Publikacji", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm" }
-      - { label: "Treść Komunikatu", name: "body", widget: "markdown" } # Edytor WYSIWYG
+      - { label: "Treść Komunikatu", name: "body", widget: "markdown" }
       - { label: "Wyróżnione (Opcjonalnie)", name: "featured", widget: "boolean", default: false }
