@@ -199,10 +199,12 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                     </div>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-gray-200">
+                    {/* Stats */}
+                    <div className="grid grid-cols-3 gap-4 mt-20 pt-12 border-t border-gray-200"> {/* Zmniejszony odstęp (gap) */}
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center">
-                                <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
+                                {/* Zmniejszony rozmiar czcionki na mobile */}
+                                <div className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
                                     {stat.number}
                                 </div>
                                 <div className="text-gray-600 mt-2">{stat.label}</div>
