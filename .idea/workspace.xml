@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="938ddba5-a121-4702-964b-df209ac1b46e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/_redirects" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/admin/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/admin/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/file.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/globe.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/window.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/informations/Informations.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/informations/Informations.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/admin/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/admin/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +84,7 @@
       <workItem from="1760664956904" duration="7310000" />
       <workItem from="1760719163337" duration="1635000" />
       <workItem from="1760734629069" duration="3895000" />
-      <workItem from="1760747836388" duration="6006000" />
+      <workItem from="1760747836388" duration="7059000" />
     </task>
     <servers />
   </component>

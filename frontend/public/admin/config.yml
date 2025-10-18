@@ -2,7 +2,10 @@ backend:
   # Konfiguracja backendu Git-Gateway
   name: git-gateway
   branch: main # Upewnij się, że to jest nazwa Twojej głównej gałęzi Git
-  squash_merges: true
+  squash_merges: repo
+  auth_proxy: https://mobi-grooming.netlify.app/.netlify/identity
+  providers:
+    - github
 
 # Tryb publikacji: Umożliwia recenzję zmian przed publikacją (Draft -> In Review -> Ready -> Publish)
 publish_mode: editorial_workflow
