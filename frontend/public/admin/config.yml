@@ -21,20 +21,16 @@ collections:
   - name: "availability"
     label: "Kalendarz Dostępności"
     files:
-      - label: "Dni Niedostępne"
-        name: "unavailable_dates"
-        # Ścieżka, gdzie CMS zapisze dane: /public/data/unavailable.json
-        file: "frontend/public/data/unavailable.json"
-        format: "json" # Wymagany format: JSON
+      # ... reszta konfiguracji ...
+      - label: "Lista Dat Niedostępności"
+        name: "entries"
+        widget: "list"
         fields:
-          # Ponieważ CMS zawsze dodaje nadrzędny klucz dla listy, używamy "entries".
-          # Pamiętaj o modyfikacji komponentu React, aby czytał json.entries!
-          - label: "Lista Dat Niedostępności"
-            name: "entries"
-            widget: "list"
-            fields:
-              - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: true }
-              - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
+          # ZMIANA: Zamiast jednego pola "date", tworzymy dwa pola na zakres
+          - { label: "Data Początkowa", name: "date_start", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: true }
+          - { label: "Data Końcowa (opcjonalnie, zostaw puste dla jednego dnia)", name: "date_end", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: false }
+          - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
+  # ... reszta konfiguracji ...
 
   # 2. KOLEKCJA MARKDOWN: Ogłoszenia i Komunikaty
   # Definiuje folder, w którym możesz tworzyć wiele wpisów (postów/komunikatów)
