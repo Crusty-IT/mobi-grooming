@@ -184,3 +184,108 @@ html, body {
 @media (min-width: 1024px) {
   /* No desktop overrides; rely on CMS defaults */
 }
+
+
+/* 10) Content safety: wrap long content to prevent overflow */
+.nc-app [class*="Title"],
+.nc-app [class*="Slug"],
+.nc-app [class*="Filename"],
+[class*="nc-app"] [class*="Title"],
+[class*="nc-app"] [class*="Slug"],
+[class*="nc-app"] [class*="Filename"] {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Media elements responsive */
+.nc-app img,
+.nc-app video,
+.nc-app iframe,
+[class*="nc-app"] img,
+[class*="nc-app"] video,
+[class*="nc-app"] iframe {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Code blocks should wrap on mobile to avoid horizontal scroll */
+.nc-app pre,
+.nc-app code,
+[class*="nc-app"] pre,
+[class*="nc-app"] code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+/* Tables: allow horizontal scroll within, not page */
+.nc-app table,
+[class*="nc-app"] table {
+  display: block !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* Strengthen root containers to avoid fixed widths */
+.nc-app,
+[class*="nc-app"],
+.nc-app [class*="Root"],
+[class*="nc-app"] [class*="Root"],
+.nc-app [class*="App"],
+[class*="nc-app"] [class*="App"] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Editor toolbar safe-area on notched devices */
+.nc-app [class*="Toolbar"],
+[class*="nc-app"] [class*="Toolbar"],
+.nc-app [class*="TopBar"],
+[class*="nc-app"] [class*="TopBar"] {
+  top: env(safe-area-inset-top) !important;
+  padding-top: env(safe-area-inset-top) !important;
+  background-color: inherit;
+}
+
+/* Mobile-specific robust additions */
+@media (max-width: 768px) {
+  /* Ensure any split containers and panes collapse to one column */
+  .nc-app [class*="Split"],
+  [class*="nc-app"] [class*="Split"],
+  .nc-app [class*="SplitPane"],
+  [class*="nc-app"] [class*="SplitPane"] {
+    display: block !important;
+  }
+
+  /* Height handling to avoid iOS 100vh issues */
+  .nc-app [class*="Editor"],
+  [class*="nc-app"] [class*="Editor"] {
+    min-height: 100dvh !important;
+  }
+
+  /* Media Library grid: 1 column */
+  .nc-app [class*="Media"] [class*="Grid"],
+  [class*="nc-app"] [class*="Media"] [class*="Grid"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Modal body scrollable and full viewport */
+  .nc-app [role="dialog"],
+  [class*="nc-app"] [role="dialog"] {
+    max-height: 100dvh !important;
+  }
+  .nc-app [role="dialog"] [class*="Body"],
+  [class*="nc-app"] [role="dialog"] [class*="Body"] {
+    overflow: auto !important;
+    max-height: calc(100dvh - 64px) !important;
+  }
+}
+
+/* 11) Prevent z-index issues for sticky bars over content */
+.nc-app [class*="Toolbar"],
+[class*="nc-app"] [class*="Toolbar"],
+.nc-app [class*="TopBar"],
+[class*="nc-app"] [class*="TopBar"] {
+  z-index: 1100 !important;
+}
