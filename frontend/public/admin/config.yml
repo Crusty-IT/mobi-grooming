@@ -10,7 +10,7 @@ publish_mode: editorial_workflow
 
 # Lokalizacja multimediów (obrazów)
 # Wskazuje na folder w katalogu public, który jest dostępny w Netlify
-media_folder: "public/pictures/uploads"  # Ścieżka względem katalogu głównego projektu
+media_folder: "frontend/public/pictures/uploads"  # Ścieżka względem katalogu głównego projektu
 public_folder: "/pictures/uploads"       # Ścieżka publiczna (URL)
 
 # --- KOLEKCJE TREŚCI ---
@@ -24,7 +24,7 @@ collections:
       - label: "Dni Niedostępne"
         name: "unavailable_dates"
         # Ścieżka, gdzie CMS zapisze dane: /public/data/unavailable.json
-        file: "public/data/unavailable.json"
+        file: "frontend/public/data/unavailable.json"
         format: "json" # Wymagany format: JSON
         fields:
           # Ponieważ CMS zawsze dodaje nadrzędny klucz dla listy, używamy "entries".
@@ -41,7 +41,7 @@ collections:
   - name: "announcements"
     label: "Ogłoszenia i Komunikaty"
     # To jest folder, w którym powstaną pliki .md (np. frontend/src/content/announcements/2025-10-18-urlop.md)
-    folder: "src/content/announcements"
+    folder: "frontend/src/content/announcements"
     create: true # Pozwala tworzyć nowe wpisy
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Format nazwy pliku
     sortable_fields: ['date', 'title']
