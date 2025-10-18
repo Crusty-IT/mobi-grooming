@@ -21,16 +21,24 @@ collections:
   - name: "availability"
     label: "Kalendarz Dostępności"
     files:
-      # ... reszta konfiguracji ...
-      - label: "Lista Dat Niedostępności"
-        name: "entries"
-        widget: "list"
-        fields:
-          # ZMIANA: Zamiast jednego pola "date", tworzymy dwa pola na zakres
-          - { label: "Data Początkowa", name: "date_start", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: true }
-          - { label: "Data Końcowa (opcjonalnie, zostaw puste dla jednego dnia)", name: "date_end", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: false }
-          - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
-  # ... reszta konfiguracji ...
+  - label: "Lista Dat Niedostępności"
+    name: "entries"
+    widget: "list"
+    summary: "{{start}} → {{end}} — {{note}}"
+    fields:
+      - label: "Od"
+        name: "start"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+      - label: "Do"
+        name: "end"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        format: "YYYY-MM-DD"
+      - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
 
   # 2. KOLEKCJA MARKDOWN: Ogłoszenia i Komunikaty
   # Definiuje folder, w którym możesz tworzyć wiele wpisów (postów/komunikatów)
