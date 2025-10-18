@@ -3,11 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zarządzanie Dostępnością CMS</title>
+    <title>CMS</title>
 </head>
 <body>
 
-<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+<!-- Netlify Identity widget – konieczny do akceptacji zaproszeń -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+    // Jeśli w URL jest #invite_token, otwórz od razu okno Identity
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', () => {
+            if (location.hash.includes('invite_token')) {
+                window.netlifyIdentity.open(); // pokaże "Accept invitation"
+            }
+        });
 
+        // Po zalogowaniu wróć do panelu
+        window.netlifyIdentity.on('login', () => {
+            location.href = '/admin/';
+        });
+    }
+</script>
+
+<!-- Decap CMS -->
+<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
