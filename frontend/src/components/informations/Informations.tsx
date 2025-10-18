@@ -3,6 +3,53 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Calendar as CalendarIcon, Info, AlertCircle } from "lucide-react";
 
+// Lightweight client component for rendering announcements fetched from API
+function AnnouncementsList() {
+  const [items, setItems] = useState<Array<{ slug: string; title: string; date?: string; body: string }>>([]);
+  const [err, setErr] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        const res = await fetch('/api/announcements', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Nie udało się pobrać ogłoszeń');
+        const json = await res.json();
+        if (!cancelled) setItems(Array.isArray(json?.entries) ? json.entries : []);
+      } catch (e: any) {
+        if (!cancelled) setErr(e?.message ?? 'Błąd wczytywania ogłoszeń');
+      }
+    }
+    load();
+    return () => { cancelled = true; }
+  }, []);
+
+  if (err) {
+    return <p className="text-red-600">{err}</p>;
+  }
+
+  if (items.length === 0) {
+    return <p className="text-gray-500">Brak ogłoszeń.</p>;
+  }
+
+  return (
+    <ul className="space-y-3">
+      {items.map((it) => (
+        <li key={it.slug} className="border-b border-pink-100 pb-3">
+          <div className="flex items-center gap-2">
+            {it.date && (
+              <span className="text-sm text-gray-500 w-32 shrink-0">
+                {new Date(it.date).toLocaleDateString('pl-PL')}
+              </span>
+            )}
+            <span className="font-semibold text-gray-800">{it.title}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 // Types for CMS-driven content (Decap CMS can write JSON/Markdown; we keep it flexible)
 interface UnavailabilityEntry {
   date: string; // ISO date string, e.g. "2025-10-17"
@@ -226,23 +273,8 @@ export default function Informations() {
               <h3 className="text-xl font-semibold text-gray-800">Komunikaty</h3>
             </div>
             <div className="prose prose-pink max-w-none text-gray-700">
-              {/* Placeholder area: Decap CMS can render Markdown into this container at build time */}
-              <p className="mb-3">
-                Ta sekcja może być zasilana treściami z Decap CMS (Markdown). Dodaj wpisy o zmianach w grafiku, urlopach
-                lub ważnych informacjach dla klientów.
-              </p>
-              {data?.length > 0 ? (
-                <ul className="list-disc pl-5 space-y-1">
-                  {data.map((u) => (
-                    <li key={u.date}>
-                      <span className="font-medium">{new Date(u.date).toLocaleDateString("pl-PL")}</span>
-                      {u.note ? <span className="text-gray-600"> — {u.note}</span> : <span className="text-gray-600"> — Niedostępne</span>}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-gray-500">Brak ogłoszeń na ten miesiąc.</p>
-              )}
+              {/* Lista ogłoszeń z Decap CMS (Markdown wczytywany przez API podczas budowy/serwera) */}
+              <AnnouncementsList />
             </div>
           </div>
         </div>
