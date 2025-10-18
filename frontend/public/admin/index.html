@@ -1,35 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  
-  <!-- 
-    ====================================================================
-    CRITICAL FIX: The Viewport Meta Tag
-    ====================================================================
-    This tag instructs the browser's rendering engine to set the width 
-    of the viewport to the device's screen width and to establish a 
-    1:1 initial scale. This is the fundamental trigger for responsive 
-    design in modern browsers.
-  -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Zarządzanie Treścią - Mobi Grooming</title>
-  
-  <!-- 
-    Dependency 1: Netlify Identity Widget
-    This script handles authentication. It must be loaded before the CMS script.
-  -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  
-  <!-- 
-    Dependency 2: Decap CMS Application
-    This script loads and bootstraps the main CMS user interface.
-  -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zarządzanie Dostępnością CMS</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <!-- The body is intentionally left empty. Decap CMS will dynamically inject its application here upon loading. -->
+<script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+
+<!-- Wstrzykujemy CSS po CMS, żeby nasze style miały pierwszeństwo -->
+<script>
+    (function () {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = './cms-overrides.css';
+        document.head.appendChild(link);
+    })();
+</script>
 </body>
 </html>
