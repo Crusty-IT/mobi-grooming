@@ -33,7 +33,7 @@ collections:
             name: "entries"
             widget: "list"
             fields:
-              - { label: "Data", name: "date", widget: "date", format: "YYYY-MM-DD", required: true }
+              - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: true }
               - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
 
   # 2. KOLEKCJA MARKDOWN: Ogłoszenia i Komunikaty
