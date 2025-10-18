@@ -135,23 +135,51 @@ export default function Informations() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      try {
-        // The path can be adjusted once Decap CMS is wired; we keep a safe fallback
-        const res = await fetch("/data/unavailable.json", { cache: "no-store" });
-        if (!res.ok) throw new Error("Brak danych o dostępności");
-        const json = (await res.json()) as UnavailabilityEntry[];
-        if (!cancelled) setData(json);
-      } catch (e: any) {
-        if (!cancelled) setError(e?.message ?? "Nie udało się wczytać danych");
-      }
-    }
-    load();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+      let cancelled = false;
+      async function load() {
+          try {
+              // Pobieranie danych z publicznej ścieżki
+              const res = await fetch("/data/unavailable.json", { cache: "no-store" });
+              if (!res.ok) throw new Error("Brak danych o dostępności");
+
+                // Wczytanie surowego JSON-a
+              const rawJson = await res.json();
+
+                // Logika adaptacyjna: sprawdza, czy to jest tablica (stary format)
+                // czy obiekt z kluczem 'entries' (nowy format CMS)
+              let entries: any[] = [];
+              if (Array.isArray(rawJson)) {
+                  entries = rawJson;
+              } else if (rawJson && typeof rawJson === 'object') {
+                  if (Array.isArray((rawJson as any).entries)) {
+                      entries = (rawJson as any).entries;
+                  } else if (Array.isArray((rawJson as any).data)) {
+                      // tolerate an alternative key if used by an older config
+                      entries = (rawJson as any).data;
+                  }
+              }
+
+              const finalData: UnavailabilityEntry[] = (entries || [])
+                  .map((e: any) => {
+                      if (!e) return null;
+                      if (typeof e === 'string') return { date: e } as UnavailabilityEntry;
+                      if (typeof e === 'object' && typeof e.date === 'string') {
+                          return { date: e.date, note: typeof e.note === 'string' ? e.note : undefined } as UnavailabilityEntry;
+                      }
+                      return null;
+                  })
+                  .filter(Boolean) as UnavailabilityEntry[];
+
+              if (!cancelled) setData(finalData);
+            } catch (e: any) {
+                if (!cancelled) setError(e?.message ?? "Nie udało się wczytać danych");
+            }
+        }
+        load();
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
   // Determine current month/year for calendar display
   const today = new Date();

@@ -1,0 +1,18 @@
+# Netlify configuration for local dev proxy and static export
+
+[build]
+  publish = "out"
+
+# For netlify dev: do not run Next.js automatically; just proxy to the running app
+[dev]
+  command = ""        # empty -> netlify dev will not run any command
+  targetPort = 3000    # proxy to `next dev` started separately
+  port = 8888          # netlify dev UI port
+  autoLaunch = true
+  framework = "#static"  # prevents framework auto-detection from taking over
+
+# Ensure SPA-style fallback in production too (complementary to public/_redirects)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
