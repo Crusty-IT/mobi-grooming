@@ -5,7 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="938ddba5-a121-4702-964b-df209ac1b46e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/admin.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/database.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/middlewares.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/plugins.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/uploads/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/admin/app.example.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/admin/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/admin/vite.config.example.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/extensions/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/types/generated/components.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/types/generated/contentTypes.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/netlify.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/_redirects" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/admin/cms-overrides.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/admin/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/admin/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/data/unavailable.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/pictures/around.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/pictures/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/scripts/run-dev.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/dashboard/Dashboard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/informations/Informations.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/content/announcements/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/netlify.toml" beforeDir="false" afterPath="$PROJECT_DIR$/netlify.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,28 +83,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Tomek\\Desktop\\Projekty\\mobi-grooming\\backend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\Tomek\\Desktop\\Projekty\\mobi-grooming\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tomek\Desktop\Projekty\mobi-grooming\frontend\src\app" />
@@ -84,7 +132,9 @@
       <workItem from="1760719163337" duration="1635000" />
       <workItem from="1760734629069" duration="3895000" />
       <workItem from="1760747836388" duration="11667000" />
-      <workItem from="1760775849996" duration="12090000" />
+      <workItem from="1760775849996" duration="12750000" />
+      <workItem from="1760818378887" duration="2084000" />
+      <workItem from="1760839776962" duration="714000" />
     </task>
     <servers />
   </component>

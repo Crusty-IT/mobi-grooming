@@ -1,0 +1,50 @@
+backend:
+  # Konfiguracja backendu Git-Gateway
+  name: git-gateway
+  branch: main # Upewnij się, że to jest nazwa Twojej głównej gałęzi Git
+  squash_merges: repo
+  auth_proxy: https://mobi-grooming.netlify.app/.netlify/identity
+
+# Tryb publikacji: Umożliwia recenzję zmian przed publikacją (Draft -> In Review -> Ready -> Publish)
+publish_mode: editorial_workflow
+
+# Lokalizacja multimediów (obrazów)
+# Wskazuje na folder w katalogu public, który jest dostępny w Netlify
+media_folder: "public/pictures/uploads"  # Ścieżka względem katalogu głównego projektu
+public_folder: "/pictures/uploads"       # Ścieżka publiczna (URL)
+
+# --- KOLEKCJE TREŚCI ---
+# ... (backend, publish_mode, media_folder) ...
+
+# --- KOLEKCJE TREŚCI ---
+collections: # Ta linia jest na zerowym poziomie wcięcia
+
+  # Pierwszy element listy kolekcji (myślnik)
+  - name: "availability"
+    label: "Kalendarz Dostępności"
+    files:
+      - label: "Dni Niedostępne"
+        name: "unavailable_dates"
+        file: "public/data/unavailable.json"
+        format: "json"
+        fields:
+          - label: "Lista Dat Niedostępności"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: true } # Twoja ostatnia, poprawna zmiana
+              - { label: "Notatka (np. Powód)", name: "note", widget: "string", required: false }
+
+  # Drugi element listy kolekcji (myślnik)
+  # !!! WAŻNE: Ten myślnik musi być na DOKŁADNIE tym samym poziomie wcięcia co myślnik powyżej !!!
+  - name: "announcements"
+    label: "Ogłoszenia i Komunikaty"
+    folder: "src/content/announcements"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: ['date', 'title']
+    fields:
+      - { label: "Tytuł Ogłoszenia", name: "title", widget: "string" }
+      - { label: "Data Publikacji", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm" }
+      - { label: "Treść Komunikatu", name: "body", widget: "markdown" }
+      - { label: "Wyróżnione (Opcjonalnie)", name: "featured", widget: "boolean", default: false }

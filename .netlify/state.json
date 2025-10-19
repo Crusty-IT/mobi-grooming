@@ -1,0 +1,21 @@
+{
+	"siteId": "aecb5ef1-f3e3-4ec5-9f44-73c73c2cde02",
+	"geolocation": {
+		"data": {
+			"city": "Stargard",
+			"country": {
+				"code": "PL",
+				"name": "Poland"
+			},
+			"subdivision": {
+				"code": "32",
+				"name": "West Pomerania"
+			},
+			"timezone": "Europe/Warsaw",
+			"latitude": 53.3365,
+			"longitude": 15.0361,
+			"postalCode": "73-110"
+		},
+		"timestamp": 1760750253220
+	}
+}
