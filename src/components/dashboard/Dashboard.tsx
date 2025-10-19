@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calendar, ChevronRight, Facebook, Instagram, Mail, Award } from 'lucide-react';
 import Informations from "../informations/Informations";
+import Opinions from "../opinions/Opinions";
 
 export default function Dashboard({ announcements }: { announcements: Array<{ slug: string; title: string; date?: string; body: string }> }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,24 +32,6 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
             title: "Pakiety Premium",
             description: "Kompleksowa pielęgnacja: strzyżenie, kąpiel, pazurki, uszy",
             price: "od 150 zł"
-        }
-    ];
-
-    const testimonials = [
-        {
-            name: "Anna K.",
-            text: "Mój York wychodzi od Was jak nowy! Profesjonalna obsługa i cudowna atmosfera. Polecam!",
-            rating: 5
-        },
-        {
-            name: "Marek T.",
-            text: "Pierwszy raz mój labrador nie stresował się u groomera. Świetny kontakt ze zwierzętami!",
-            rating: 5
-        },
-        {
-            name: "Joanna M.",
-            text: "Najlepszy salon groomerski w okolicy. Zawsze terminowo i perfekcyjnie wykonane usługi.",
-            rating: 5
         }
     ];
 
@@ -339,35 +322,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
             </section>
 
             {/* Testimonials Section */}
-            <section id="opinie" className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Co mówią nasi klienci
-                        </h2>
-                        <p className="text-xl text-gray-600">
-                            Zaufało nam ponad 1000 właścicieli pupili
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {testimonials.map((testimonial, index) => (
-                            <div
-                                key={index}
-                                className="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-3xl border border-pink-100"
-                            >
-                                <div className="flex mb-4">
-                                    {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                                    ))}
-                                </div>
-                                <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
-                                <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <Opinions />
 
             {/* News Section */}
             <Informations announcements={announcements} />
