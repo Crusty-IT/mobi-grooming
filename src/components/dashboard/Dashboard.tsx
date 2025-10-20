@@ -213,16 +213,15 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className="group bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-2 cursor-pointer border border-pink-100"
+                                className="group bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-2 cursor-pointer border border-pink-100 text-center"
                             >
-                                <div className="text-pink-500 mb-4 group-hover:scale-110 transition">
+                                <div className="text-pink-500 mb-4 group-hover:scale-110 transition inline-block">
                                     {service.icon}
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
                                 <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
-                                <div className="flex items-center justify-between">
+                                <div className="flex items-center justify-center">
                                     <span className="text-2xl font-bold text-pink-500">{service.price}</span>
-                                    <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-pink-500 group-hover:translate-x-1 transition" />
                                 </div>
                             </div>
                         ))}
@@ -340,7 +339,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12">
-                        {/* Contact Info */}
+                        {/* Informacje kontaktowe - bez zmian */}
                         <div className="space-y-6">
                             <div className="bg-white p-6 rounded-2xl shadow-md flex items-start space-x-4">
                                 <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -372,7 +371,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 mb-1">Adres</h3>
-                                    <p className="text-gray-600">ul. Szczecińska 26A<br />73-110 Stargard</p>
+                                    <p className="text-gray-600">ul. Szczecińska 26<br />73-110 Stargard</p>
                                 </div>
                             </div>
 
@@ -390,87 +389,75 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 </div>
                             </div>
 
-                            {/* Social Media */}
                             <div className="flex space-x-4 pt-6">
-                                <a href="https://www.facebook.com/MOBISalonikPielegnacjiPsow" target="_blank" className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition transform hover:scale-110">
+                                <a href="https://www.facebook.com/MOBISalonikPielegnacjiPsow" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white hover:bg-pink-600 transition transform hover:scale-110">
                                     <Facebook className="w-6 h-6" />
                                 </a>
-                                <a href="https://www.instagram.com/mobi_salon_pielegnacji_psow" target="_blank" className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition transform hover:scale-110">
+                                <a href="https://www.instagram.com/mobi_salon_pielegnacji_psow" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition transform hover:scale-110">
                                     <Instagram className="w-6 h-6" />
                                 </a>
                             </div>
                         </div>
 
-                        {/* Map Placeholder */}
+                        {/* --- POCZĄTEK ZINTEGROWANEJ MAPY --- */}
+                        {/* Zastosowano responsywne proporcje, czysty kod i dbano o dostępność */}
                         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-                            <div className="aspect-square bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center">
-                                <div className="text-center text-gray-400">
-                                    <MapPin className="w-16 h-16 mx-auto mb-4 opacity-30" />
-                                    <p className="text-lg">Mapa Google Maps</p>
-                                    <p className="text-sm mt-2">Integracja z iframe</p>
-                                </div>
-                            </div>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.2099979581826!2d15.021344213383317!3d53.33949697217173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4700b9bba5bec0f3%3A0x9a30e2e233d42ef7!2sMobi.%20Salonik%20piel%C4%99gnacji%20ps%C3%B3w.%20Grzemska%20B.!5e0!3m2!1spl!2spl!4v1760907404988!5m2!1spl!2spl"
+                                className="w-full h-full border-0 aspect-[4/3] md:aspect-video"
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Lokalizacja salonu Mobi na mapie Google"
+                            />
                         </div>
+                        {/* --- KONIEC ZINTEGROWANEJ MAPY --- */}
+
                     </div>
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12">
+            <footer className="bg-gray-900 text-white py-8">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-4 gap-8 mb-8">
-                        <div>
-                            <div className="flex items-center space-x-3 mb-4">
-                                <img
-                                    src="https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/logo.jpg?raw=true"
-                                    alt="Mobi Logo"
-                                    className="h-10 w-10 rounded-full object-cover"
-                                />
-                                <span className="text-xl font-bold">Mobi</span>
+                    <div className="border-t border-gray-800 pt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-y-4 text-xs">
+
+                            {/* Kolumna 1: Twórca strony - Z NOWĄ, NAJLEPSZĄ TECHNIKĄ */}
+                            <div className="flex justify-center md:justify-start">
+                                <a
+                                    href="https://crusty-it.github.io/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 text-gray-400 hover:text-gray-200 transition-colors"
+                                    aria-label="Strona wykonana przez Crusty IT"
+                                >
+                                    <span className="text-sm">Stworzone przez</span>
+
+
+                                    <div className="relative h-4 w-24">
+
+                                        <img
+                                            src="https://raw.githubusercontent.com/shellupski/Moja-strona/main/images/logo_horizontaly.svg"
+                                            alt="Crusty IT Logo"
+                                            className="absolute top-1/2 left-0 -translate-y-1/2 h-15 w-auto"
+                                        />
+                                    </div>
+                                </a>
                             </div>
-                            <p className="text-gray-400 text-sm">
-                                Profesjonalny grooming z pasją i miłością do zwierząt.
+
+                            {/* Kolumna 2: Prawa autorskie */}
+                            <p className="text-gray-400 text-center">
+                                © {new Date().getFullYear()} Mobi Grooming Salon. Wszystkie prawa zastrzeżone.
                             </p>
-                        </div>
 
-                        <div>
-                            <h4 className="font-bold mb-4">Nawigacja</h4>
-                            <ul className="space-y-2 text-gray-400 text-sm">
-                                <li><a href="#onas" className="hover:text-pink-400 transition">O Nas</a></li>
-                                <li><a href="#uslugi" className="hover:text-pink-400 transition">Usługi</a></li>
-                                <li><a href="#certyfikaty" className="hover:text-pink-400 transition">Certyfikaty</a></li>
-                                <li><a href="#galeria" className="hover:text-pink-400 transition">Galeria</a></li>
-                                <li><a href="#opinie" className="hover:text-pink-400 transition">Opinie</a></li>
-                                <li><a href="#kontakt" className="hover:text-pink-400 transition">Kontakt</a></li>
-                            </ul>
-                        </div>
+                            {/* Kolumna 3: Placeholder */}
+                            <div className="hidden md:block"></div>
 
-                        <div>
-                            <h4 className="font-bold mb-4">Usługi</h4>
-                            <ul className="space-y-2 text-gray-400 text-sm">
-                                <li>Strzyżenie</li>
-                                <li>Kąpiel & Pielęgnacja</li>
-                                <li>SPA dla pupili</li>
-                                <li>Pakiety Premium</li>
-                            </ul>
                         </div>
-
-                        <div>
-                            <h4 className="font-bold mb-4">Kontakt</h4>
-                            <ul className="space-y-2 text-gray-400 text-sm">
-                                <li>+48 690 011 396</li>
-                                <li>kontakt@mobi-grooming.pl</li>
-                                <li>ul. Szczecińska 26A</li>
-                                <li>73-110 Stargard</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-                        <p>© 2025 Mobi Grooming Salon. Wszystkie prawa zastrzeżone.</p>
                     </div>
                 </div>
             </footer>
+
 
             {/* Floating CTA Button */}
             <a
