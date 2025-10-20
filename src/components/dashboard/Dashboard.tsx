@@ -213,14 +213,19 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className="group bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-2 cursor-pointer border border-pink-100 text-center"
+                                className="group bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-2 cursor-pointer border border-pink-100 text-center flex flex-col h-full"
                             >
-                                <div className="text-pink-500 mb-4 group-hover:scale-110 transition inline-block">
-                                    {service.icon}
+                                {/* Treść górna */}
+                                <div>
+                                    <div className="text-pink-500 mb-4 group-hover:scale-110 transition inline-block">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                                    <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                                <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
-                                <div className="flex items-center justify-center">
+
+                                {/* Cena wypchnięta na dół */}
+                                <div className="flex items-center justify-center mt-auto">
                                     <span className="text-2xl font-bold text-pink-500">{service.price}</span>
                                 </div>
                             </div>
