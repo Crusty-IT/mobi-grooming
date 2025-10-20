@@ -1,3 +1,12 @@
 {
-  "entries": []
+  "entries": [
+    {
+      "date": "2025-10-21",
+      "note": "Test"
+    },
+    {
+      "date": "2025-10-20",
+      "note": "Test"
+    }
+  ]
 }
