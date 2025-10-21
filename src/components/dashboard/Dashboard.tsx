@@ -172,7 +172,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 <div className="aspect-square bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 flex items-center justify-center">
                                     <div className="text-center text-gray-400">
                                         <img
-                                            src="/sciezka/do/pliku/zdjecie-pupila.jpg"
+                                            src="https://raw.githubusercontent.com/shellupski/mobi-grooming/main/public/pictures/uploads/main.mp4 "
                                             alt="Zdjęcie szczęśliwego pupila"
                                             className="w-24 h-24 mx-auto mb-4 object-cover"
                                         />
