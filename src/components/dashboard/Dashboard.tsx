@@ -11,27 +11,27 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
     const services = [
         {
             icon: <Scissors className="w-8 h-8" />,
-            title: "Strzyżenie",
-            description: "Profesjonalne strzyżenie dostosowane do rasy i potrzeb Twojego pupila",
-            price: "od 80 zł"
+            title: "Trymowanie",
+            description: "Bezbolesne usuwanie martwego podszerstka u psów szorstkowłosych (np. terierów). Niezbędne dla zachowania zdrowej skóry i prawidłowej struktury sierści.",
+            price: "od 90 zł" // Przykładowa cena, dostosuj
         },
         {
             icon: <Sparkles className="w-8 h-8" />,
-            title: "Kąpiel & Pielęgnacja",
-            description: "Kompleksowa kąpiel z wysokiej jakości kosmetykami i suszenie",
-            price: "od 50 zł"
+            title: "Strzyżenie i Modelowanie",
+            description: "Profesjonalne strzyżenie maszynką i nożyczkami, dostosowane do standardu rasy lub Twoich preferencji. Usługa obejmuje precyzyjne nadanie pupilowi idealnej fryzury.",
+            price: "od 80 zł" // Przykładowa cena, dostosuj
         },
         {
             icon: <Heart className="w-8 h-8" />,
-            title: "SPA dla pupili",
-            description: "Relaksujące zabiegi spa: masaże, peeling, aromaterapia",
-            price: "od 100 zł"
+            title: "Kąpiele Specjalistyczne",
+            description: "Profesjonalne mycie z użyciem specjalistycznych kosmetyków: pielęgnacyjnych, leczniczych lub koloryzujących. Dbamy o zdrowie i kondycję skóry oraz sierści.",
+            price: "od 60 zł" // Przykładowa cena, dostosuj
         },
         {
             icon: <Star className="w-8 h-8" />,
-            title: "Pakiety Premium",
-            description: "Kompleksowa pielęgnacja: strzyżenie, kąpiel, pazurki, uszy",
-            price: "od 150 zł"
+            title: "Wyczesywanie Obfitej Sierści",
+            description: "Intensywny zabieg usunięcia martwego podszerstka i rozczesywania sfilcowanej sierści. Pomaga zredukować linienie i przywraca komfort zwierzęciu.",
+            price: "od 70 zł" // Przykładowa cena, dostosuj
         }
     ];
 
@@ -171,7 +171,11 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                             <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
                                 <div className="aspect-square bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 flex items-center justify-center">
                                     <div className="text-center text-gray-400">
-                                        <Heart className="w-24 h-24 mx-auto mb-4 opacity-30" />
+                                        <img
+                                            src="/sciezka/do/pliku/zdjecie-pupila.jpg"
+                                            alt="Zdjęcie szczęśliwego pupila"
+                                            className="w-24 h-24 mx-auto mb-4 object-cover"
+                                        />
                                         <p className="text-lg">Zdjęcie szczęśliwego pupila</p>
                                     </div>
                                 </div>
@@ -232,12 +236,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                         ))}
                     </div>
 
-                    <div className="text-center mt-12">
-                        <button className="text-pink-500 font-semibold hover:text-pink-600 transition flex items-center space-x-2 mx-auto">
-                            <span>Zobacz pełny cennik</span>
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
+
                 </div>
             </section>
 
