@@ -15,25 +15,25 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
             icon: <Scissors className="w-8 h-8" />,
             title: "Trymowanie",
             description: "Bezbolesne usuwanie martwego podszerstka u psów szorstkowłosych (np. terierów). Niezbędne dla zachowania zdrowej skóry i prawidłowej struktury sierści.",
-            price: "od 90 zł" // Przykładowa cena, dostosuj
+            price: "od 90 zł"
         },
         {
             icon: <Sparkles className="w-8 h-8" />,
             title: "Strzyżenie i Modelowanie",
             description: "Profesjonalne strzyżenie maszynką i nożyczkami, dostosowane do standardu rasy lub Twoich preferencji. Usługa obejmuje precyzyjne nadanie pupilowi idealnej fryzury.",
-            price: "od 80 zł" // Przykładowa cena, dostosuj
+            price: "od 80 zł"
         },
         {
             icon: <Heart className="w-8 h-8" />,
             title: "Kąpiele Specjalistyczne",
             description: "Profesjonalne mycie z użyciem specjalistycznych kosmetyków: pielęgnacyjnych, leczniczych lub koloryzujących. Dbamy o zdrowie i kondycję skóry oraz sierści.",
-            price: "od 60 zł" // Przykładowa cena, dostosuj
+            price: "od 60 zł"
         },
         {
             icon: <Star className="w-8 h-8" />,
             title: "Wyczesywanie Obfitej Sierści",
             description: "Intensywny zabieg usunięcia martwego podszerstka i rozczesywania sfilcowanej sierści. Pomaga zredukować linienie i przywraca komfort zwierzęciu.",
-            price: "od 70 zł" // Przykładowa cena, dostosuj
+            price: "od 70 zł"
         }
     ];
 
