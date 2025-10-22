@@ -167,26 +167,31 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 </a>
                             </div>
                         </div>
-                        <div className="relative">
-                            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-                                <div className="aspect-square bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 flex items-center justify-center">
-                                    <div className="text-center text-gray-400">
-                                        <img
-                                            src="https://raw.githubusercontent.com/shellupski/mobi-grooming/main/public/pictures/uploads/main.mp4 "
-                                            alt="Zdjęcie szczęśliwego pupila"
-                                            className="w-24 h-24 mx-auto mb-4 object-cover"
-                                        />
-                                        <p className="text-lg">Zdjęcie szczęśliwego pupila</p>
-                                    </div>
+
+
+                        <div className="relative w-full max-w-sm mx-auto md:mx-0 md:h-full">
+                            <div className="relative z-10 h-full rounded-3xl overflow-hidden shadow-2xl">
+                                <div className="h-full bg-black aspect-[9/16]">
+                                    <iframe
+                                        src="https://player.vimeo.com/video/1129356965?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                                        className="w-full h-full"
+                                        frameBorder="0"
+                                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                        referrerPolicy="strict-origin-when-cross-origin"
+                                        title="main"
+                                    ></iframe>
                                 </div>
                             </div>
-                            <div className="absolute top-10 -right-10 w-40 h-40 bg-pink-300 rounded-full opacity-20 blur-3xl"></div>
-                            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-purple-300 rounded-full opacity-20 blur-3xl"></div>
+
+                            <div className="absolute top-10 -right-10 w-40 h-40 bg-pink-300 rounded-full opacity-20 blur-3xl hidden md:block"></div>
+                            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-purple-300 rounded-full opacity-20 blur-3xl hidden md:block"></div>
                         </div>
+
+
+
+
                     </div>
 
-                    {/* Stats */}
-                    {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 mt-20 pt-12 border-t border-gray-200"> {/* Zmniejszony odstęp (gap) */}
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center">
@@ -201,7 +206,6 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                 </div>
             </section>
 
-            {/* Services Section */}
             <section id="uslugi" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
@@ -219,7 +223,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 key={index}
                                 className="group bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-2 cursor-pointer border border-pink-100 text-center flex flex-col h-full"
                             >
-                                {/* Treść górna */}
+
                                 <div>
                                     <div className="text-pink-500 mb-4 group-hover:scale-110 transition inline-block">
                                         {service.icon}
@@ -228,7 +232,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                     <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
                                 </div>
 
-                                {/* Cena wypchnięta na dół */}
+
                                 <div className="flex items-center justify-center mt-auto">
                                     <span className="text-2xl font-bold text-pink-500">{service.price}</span>
                                 </div>
@@ -240,7 +244,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                 </div>
             </section>
 
-            {/* Why Mobi Section */}
+
             <section className="py-20 bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
