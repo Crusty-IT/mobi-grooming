@@ -8,12 +8,12 @@ const hideScrollbarStyle = `
 
 export default function Gallery() {
     const images = [
-        "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/1.png",
-        "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/2.png",
-        "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/3.png",
-        "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/4.png",
-        "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/5.png",
-        "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/6.png",
+        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/1.jpg?raw=true",
+        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/2.jpg?raw=true",
+        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/3.jpg?raw=true",
+        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/4.jpg?raw=true",
+        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/5.jpg?raw=true",
+        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/6.jpg?raw=true"
     ];
 
     const [open, setOpen] = useState(false);
