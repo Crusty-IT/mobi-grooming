@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calendar, ChevronRight, Facebook, Instagram, Mail, Award } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calendar, ChevronRight, Facebook, Instagram, Mail } from 'lucide-react';
 import Informations from "../informations/Informations";
 import Opinions from "../opinions/Opinions";
+import Certificates from "../certificates/Certificates";
 
 export default function Dashboard({ announcements }: { announcements: Array<{ slug: string; title: string; date?: string; body: string }> }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -284,27 +285,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                 </div>
             </section>
 
-            {/* Certyfikaty Section - Placeholder */}
-            <section id="certyfikaty" className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <div className="inline-block mb-6">
-                            <Award className="w-16 h-16 text-pink-500 mx-auto" />
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Nasze certyfikaty
-                        </h2>
-                        <p className="text-xl text-gray-600 mb-12">
-                            Profesjonalizm potwierdzony kwalifikacjami
-                        </p>
-                        <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-20 border-2 border-dashed border-pink-300">
-                            <Award className="w-20 h-20 text-pink-300 mx-auto mb-4" />
-                            <p className="text-gray-400 text-xl font-medium">Komponent certyfikatów zostanie dodany tutaj</p>
-                            <p className="text-gray-300 text-sm mt-2">Miejsce na Twój własny komponent z certyfikatami</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Certificates />
 
             {/* Galeria Section - Placeholder */}
             <section id="galeria" className="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
@@ -328,13 +309,13 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                 </div>
             </section>
 
-            {/* Testimonials Section */}
+
             <Opinions />
 
-            {/* News Section */}
+
             <Informations announcements={announcements} />
 
-            {/* Contact Section */}
+
             <section id="kontakt" className="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
@@ -407,8 +388,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                             </div>
                         </div>
 
-                        {/* --- POCZĄTEK ZINTEGROWANEJ MAPY --- */}
-                        {/* Zastosowano responsywne proporcje, czysty kod i dbano o dostępność */}
+
                         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.2099979581826!2d15.021344213383317!3d53.33949697217173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4700b9bba5bec0f3%3A0x9a30e2e233d42ef7!2sMobi.%20Salonik%20piel%C4%99gnacji%20ps%C3%B3w.%20Grzemska%20B.!5e0!3m2!1spl!2spl!4v1760907404988!5m2!1spl!2spl"
@@ -419,7 +399,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 title="Lokalizacja salonu Mobi na mapie Google"
                             />
                         </div>
-                        {/* --- KONIEC ZINTEGROWANEJ MAPY --- */}
+
 
                     </div>
                 </div>
@@ -430,7 +410,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                     <div className="border-t border-gray-800 pt-6">
                         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-y-4 text-xs">
 
-                            {/* Kolumna 1: Twórca strony - Z NOWĄ, NAJLEPSZĄ TECHNIKĄ */}
+
                             <div className="flex justify-center md:justify-start">
                                 <a
                                     href="https://crusty-it.github.io/"
@@ -453,7 +433,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 </a>
                             </div>
 
-                            {/* Kolumna 2: Prawa autorskie */}
+
                             <p className="text-gray-400 text-center">
                                 © {new Date().getFullYear()} Mobi Grooming Salon. Wszystkie prawa zastrzeżone.
                             </p>
@@ -467,7 +447,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
             </footer>
 
 
-            {/* Floating CTA Button */}
+
             <a
                 href="tel:+48690011396"
                 className="fixed bottom-6 right-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition transform hover:scale-110 z-50 flex items-center space-x-3"
