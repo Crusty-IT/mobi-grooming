@@ -6,7 +6,7 @@ const hideScrollbarStyle = `
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 `;
 
-export default function CertificatesSection() {
+export default function Gallery() {
     const images = [
         "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/1.png",
         "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/2.png",
@@ -23,6 +23,7 @@ export default function CertificatesSection() {
     const [ty, setTy] = useState(0);
     const [dragging, setDragging] = useState(false);
     const drag = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
+
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
@@ -81,7 +82,7 @@ export default function CertificatesSection() {
         const el = scrollContainerRef.current;
         if (el) {
             const scrollAmount = el.clientWidth * 0.8;
-            el.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+            el.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
         }
     };
 
@@ -89,12 +90,12 @@ export default function CertificatesSection() {
         const el = scrollContainerRef.current;
         if (el) {
             checkForScroll();
-            el.addEventListener('scroll', checkForScroll);
-            window.addEventListener('resize', checkForScroll);
+            el.addEventListener("scroll", checkForScroll);
+            window.addEventListener("resize", checkForScroll);
             const timeoutId = setTimeout(checkForScroll, 100);
             return () => {
-                el.removeEventListener('scroll', checkForScroll);
-                window.removeEventListener('resize', checkForScroll);
+                el.removeEventListener("scroll", checkForScroll);
+                window.removeEventListener("resize", checkForScroll);
                 clearTimeout(timeoutId);
             };
         }
@@ -103,16 +104,16 @@ export default function CertificatesSection() {
     return (
         <>
             <style>{hideScrollbarStyle}</style>
-            <section id="certyfikaty" className="py-20 bg-white">
+            <section id="galeria" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nasze certyfikaty</h2>
-                        <p className="text-xl text-gray-600 mb-12">Profesjonalizm potwierdzony kwalifikacjami</p>
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Galeria</h2>
+                        <p className="text-xl text-gray-600 mb-12">Zobacz efekty naszej pracy</p>
 
                         <div className="relative">
                             {canScrollLeft && (
                                 <button
-                                    onClick={() => handleScroll('left')}
+                                    onClick={() => handleScroll("left")}
                                     className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                                     aria-label="Przewiń w lewo"
                                 >
@@ -120,18 +121,21 @@ export default function CertificatesSection() {
                                 </button>
                             )}
 
-
                             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 md:p-12 border border-pink-200">
                                 <div ref={scrollContainerRef} className="overflow-x-auto hide-scrollbar">
                                     <div className="flex gap-6">
                                         {images.map((src, i) => (
                                             <button
-                                                key={i} onClick={() => openAt(i)}
+                                                key={i}
+                                                onClick={() => openAt(i)}
                                                 className="shrink-0 bg-white rounded-2xl border border-pink-100 shadow-sm p-4 transition-transform hover:-translate-y-1"
                                                 title="Kliknij, aby powiększyć"
                                             >
                                                 <img
-                                                    src={src} alt={`Certyfikat ${i + 1}`} loading="lazy" draggable={false}
+                                                    src={src}
+                                                    alt={`Zdjęcie ${i + 1}`}
+                                                    loading="lazy"
+                                                    draggable={false}
                                                     className="h-80 w-auto object-contain select-none"
                                                 />
                                             </button>
@@ -140,13 +144,13 @@ export default function CertificatesSection() {
                                 </div>
 
                                 <p className="text-center text-gray-400 text-sm mt-6">
-                                    Kliknij na certyfikat, aby go powiększyć
+                                    Kliknij na zdjęcie, aby je powiększyć
                                 </p>
                             </div>
 
                             {canScrollRight && (
                                 <button
-                                    onClick={() => handleScroll('right')}
+                                    onClick={() => handleScroll("right")}
                                     className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                                     aria-label="Przewiń w prawo"
                                 >
@@ -161,11 +165,16 @@ export default function CertificatesSection() {
                             <button onClick={() => setOpen(false)} className="absolute top-4 right-4 text-white/90 text-3xl px-3" aria-label="Zamknij">×</button>
                             <div
                                 className={`relative max-w-[90vw] max-h-[85vh] overflow-hidden rounded-lg ${dragging ? "cursor-grabbing" : scale > 1 ? "cursor-grab" : "cursor-zoom-in"}`}
-                                onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerLeave={endDrag}
+                                onPointerDown={onPointerDown}
+                                onPointerMove={onPointerMove}
+                                onPointerUp={endDrag}
+                                onPointerLeave={endDrag}
                                 style={{ touchAction: "none" }}
                             >
                                 <img
-                                    src={images[idx]} alt={`Certyfikat ${idx + 1}`} draggable={false}
+                                    src={images[idx]}
+                                    alt={`Zdjęcie ${idx + 1}`}
+                                    draggable={false}
                                     className="select-none pointer-events-none max-w-[90vw] max-h-[85vh] object-contain"
                                     style={{
                                         transform: `translate3d(${tx}px, ${ty}px, 0) scale(${scale})`,

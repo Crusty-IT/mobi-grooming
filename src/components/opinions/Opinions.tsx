@@ -120,40 +120,28 @@ export default function Opinions() {
                 </div>
 
                 <div className="relative">
-                    {/* Strzałki */}
+
                     <button
                         onClick={() => scrollByAmount('left')}
                         aria-label="Poprzednie opinie"
-                        className={`absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-20 rounded-full p-3 shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 ring-pink-200 ${
-                            canLeft
-                                ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white opacity-100'
-                                : 'bg-gray-200 text-gray-400 opacity-0 cursor-not-allowed'
-                        }`}
                         disabled={!canLeft}
+                        className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none"
                     >
-                        <ChevronLeft className="w-6 h-6" />
+                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                     </button>
 
                     <button
                         onClick={() => scrollByAmount('right')}
                         aria-label="Następne opinie"
-                        className={`absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-20 rounded-full p-3 shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 ring-pink-200 ${
-                            canRight
-                                ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white opacity-100'
-                                : 'bg-gray-200 text-gray-400 opacity-0 cursor-not-allowed'
-                        }`}
                         disabled={!canRight}
+                        className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none"
                     >
-                        <ChevronRight className="w-6 h-6" />
+                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                     </button>
 
-                    {/* ----- ZMIANA: Poniższe DIVy z gradientem zostały usunięte ----- */}
-                    {/*
-            <div className="pointer-events-none absolute inset-y-0 left-0 ..."></div>
-            <div className="pointer-events-none absolute inset-y-0 right-0 ..."></div>
-          */}
 
-                    {/* Pasek z opiniami (scrollbar ukryty) */}
+
+
                     <div
                         ref={scrollerRef}
                         className="no-scrollbar flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 py-4"

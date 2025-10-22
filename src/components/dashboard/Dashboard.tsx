@@ -5,6 +5,7 @@ import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calenda
 import Informations from "../informations/Informations";
 import Opinions from "../opinions/Opinions";
 import Certificates from "../certificates/Certificates";
+import Gallery from "../gallery/Gallery";
 
 export default function Dashboard({ announcements }: { announcements: Array<{ slug: string; title: string; date?: string; body: string }> }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -287,27 +288,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
 
             <Certificates />
 
-            {/* Galeria Section - Placeholder */}
-            <section id="galeria" className="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <div className="inline-block mb-6">
-                            <Sparkles className="w-16 h-16 text-purple-500 mx-auto" />
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Galeria
-                        </h2>
-                        <p className="text-xl text-gray-600 mb-12">
-                            Zobacz efekty naszej pracy
-                        </p>
-                        <div className="bg-white rounded-3xl p-20 border-2 border-dashed border-purple-300">
-                            <Heart className="w-20 h-20 text-purple-300 mx-auto mb-4" />
-                            <p className="text-gray-400 text-xl font-medium">Komponent galerii zostanie dodany tutaj</p>
-                            <p className="text-gray-300 text-sm mt-2">Miejsce na Twój własny komponent z galerią zdjęć</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Gallery/>
 
 
             <Opinions />
@@ -438,7 +419,6 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 © {new Date().getFullYear()} Mobi Grooming Salon. Wszystkie prawa zastrzeżone.
                             </p>
 
-                            {/* Kolumna 3: Placeholder */}
                             <div className="hidden md:block"></div>
 
                         </div>
