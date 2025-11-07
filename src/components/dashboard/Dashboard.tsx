@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Calendar, ChevronRight, Facebook, Instagram, Mail } from 'lucide-react';
+import { Menu, X, Phone, MapPin, Clock, Star, Heart, Scissors, Sparkles, Facebook, Instagram, Mail } from 'lucide-react';
 import Informations from "../informations/Informations";
 import Opinions from "../opinions/Opinions";
 import Certificates from "../certificates/Certificates";

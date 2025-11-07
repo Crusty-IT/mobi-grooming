@@ -1,109 +1,108 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-const hideScrollbarStyle = `
+const HIDE_SCROLLBAR_STYLE = `
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 `;
 
+const GALLERY_IMAGES = [
+  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/1.jpg?raw=true",
+  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/2.jpg?raw=true",
+  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/3.jpg?raw=true",
+  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/4.jpg?raw=true",
+  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/5.jpg?raw=true",
+  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/6.jpg?raw=true"
+];
+
 export default function Gallery() {
-    const images = [
-        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/1.jpg?raw=true",
-        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/2.jpg?raw=true",
-        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/3.jpg?raw=true",
-        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/4.jpg?raw=true",
-        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/5.jpg?raw=true",
-        "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/6.jpg?raw=true"
-    ];
+  const [open, setOpen] = useState(false);
+  const [idx, setIdx] = useState(0);
+  const [scale, setScale] = useState(1);
+  const [tx, setTx] = useState(0);
+  const [ty, setTy] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const drag = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
 
-    const [open, setOpen] = useState(false);
-    const [idx, setIdx] = useState(0);
-    const [scale, setScale] = useState(1);
-    const [tx, setTx] = useState(0);
-    const [ty, setTy] = useState(0);
-    const [dragging, setDragging] = useState(false);
-    const drag = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const [canScrollLeft, setCanScrollLeft] = useState(false);
-    const [canScrollRight, setCanScrollRight] = useState(true);
+  const resetView = useCallback(() => { setScale(1); setTx(0); setTy(0); }, []);
+  const openAt = useCallback((i: number) => { setIdx(i); resetView(); setOpen(true); }, [resetView]);
 
-    const resetView = () => { setScale(1); setTx(0); setTy(0); };
-    const openAt = (i: number) => { setIdx(i); resetView(); setOpen(true); };
-
-    useEffect(() => {
-        const onKey = (e: KeyboardEvent) => {
-            if (!open) return;
-            if (e.key === "Escape") setOpen(false);
-            if (e.key === "ArrowRight") { setIdx((k) => (k + 1) % images.length); resetView(); }
-            if (e.key === "ArrowLeft") { setIdx((k) => (k - 1 + images.length) % images.length); resetView(); }
-        };
-        window.addEventListener("keydown", onKey);
-        return () => window.removeEventListener("keydown", onKey);
-    }, [open, images.length]);
-
-    const onWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
-        e.preventDefault();
-        const dir = Math.sign(e.deltaY);
-        setScale((s) => {
-            const ns = Math.min(4, Math.max(1, s - dir * 0.2));
-            if (ns === 1) resetView();
-            return ns;
-        });
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (!open) return;
+      if (e.key === "Escape") setOpen(false);
+      if (e.key === "ArrowRight") { setIdx((k) => (k + 1) % GALLERY_IMAGES.length); resetView(); }
+      if (e.key === "ArrowLeft") { setIdx((k) => (k - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length); resetView(); }
     };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, resetView]);
 
-    const onPointerDown: React.PointerEventHandler<HTMLDivElement> = (e) => {
-        if (scale <= 1) return;
-        setDragging(true);
-        (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
-        drag.current = { x: e.clientX, y: e.clientY, tx, ty };
+  const onWheel: React.WheelEventHandler<HTMLDivElement> = useCallback((e) => {
+    e.preventDefault();
+    const dir = Math.sign(e.deltaY);
+    setScale((s) => {
+      const ns = Math.min(4, Math.max(1, s - dir * 0.2));
+      if (ns === 1) resetView();
+      return ns;
+    });
+  }, [resetView]);
+
+  const onPointerDown: React.PointerEventHandler<HTMLDivElement> = useCallback((e) => {
+    if (scale <= 1) return;
+    setDragging(true);
+    (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);
+    drag.current = { x: e.clientX, y: e.clientY, tx, ty };
+  }, [scale, tx, ty]);
+
+  const onPointerMove: React.PointerEventHandler<HTMLDivElement> = useCallback((e) => {
+    if (!dragging) return;
+    const dx = e.clientX - drag.current.x;
+    const dy = e.clientY - drag.current.y;
+    setTx(drag.current.tx + dx);
+    setTy(drag.current.ty + dy);
+  }, [dragging]);
+
+  const endDrag: React.PointerEventHandler<HTMLDivElement> = useCallback(() => setDragging(false), []);
+
+  const checkForScroll = useCallback(() => {
+    const el = scrollContainerRef.current;
+    if (el) {
+      const buffer = 1;
+      setCanScrollLeft(el.scrollLeft > buffer);
+      setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - buffer);
+    }
+  }, []);
+
+  const handleScroll = useCallback((direction: "left" | "right") => {
+    const el = scrollContainerRef.current;
+    if (el) {
+      const scrollAmount = el.clientWidth * 0.8;
+      el.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+    }
+  }, []);
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    checkForScroll();
+    el.addEventListener("scroll", checkForScroll);
+    window.addEventListener("resize", checkForScroll);
+    const timeoutId = setTimeout(checkForScroll, 100);
+    return () => {
+      el.removeEventListener("scroll", checkForScroll);
+      window.removeEventListener("resize", checkForScroll);
+      clearTimeout(timeoutId);
     };
-
-    const onPointerMove: React.PointerEventHandler<HTMLDivElement> = (e) => {
-        if (!dragging) return;
-        const dx = e.clientX - drag.current.x;
-        const dy = e.clientY - drag.current.y;
-        setTx(drag.current.tx + dx);
-        setTy(drag.current.ty + dy);
-    };
-
-    const endDrag: React.PointerEventHandler<HTMLDivElement> = () => setDragging(false);
-
-    const checkForScroll = () => {
-        const el = scrollContainerRef.current;
-        if (el) {
-            const buffer = 1;
-            setCanScrollLeft(el.scrollLeft > buffer);
-            setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - buffer);
-        }
-    };
-
-    const handleScroll = (direction: "left" | "right") => {
-        const el = scrollContainerRef.current;
-        if (el) {
-            const scrollAmount = el.clientWidth * 0.8;
-            el.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
-        }
-    };
-
-    useEffect(() => {
-        const el = scrollContainerRef.current;
-        if (el) {
-            checkForScroll();
-            el.addEventListener("scroll", checkForScroll);
-            window.addEventListener("resize", checkForScroll);
-            const timeoutId = setTimeout(checkForScroll, 100);
-            return () => {
-                el.removeEventListener("scroll", checkForScroll);
-                window.removeEventListener("resize", checkForScroll);
-                clearTimeout(timeoutId);
-            };
-        }
-    }, [images]);
+  }, [checkForScroll]);
 
     return (
         <>
-            <style>{hideScrollbarStyle}</style>
+            <style>{HIDE_SCROLLBAR_STYLE}</style>
             <section id="galeria" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
@@ -124,7 +123,7 @@ export default function Gallery() {
                             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 md:p-12 border border-pink-200">
                                 <div ref={scrollContainerRef} className="overflow-x-auto hide-scrollbar">
                                     <div className="flex gap-6">
-                                        {images.map((src, i) => (
+                                        {GALLERY_IMAGES.map((src, i) => (
                                             <button
                                                 key={i}
                                                 onClick={() => openAt(i)}
@@ -172,7 +171,7 @@ export default function Gallery() {
                                 style={{ touchAction: "none" }}
                             >
                                 <img
-                                    src={images[idx]}
+                                    src={GALLERY_IMAGES[idx]}
                                     alt={`Zdjęcie ${idx + 1}`}
                                     draggable={false}
                                     className="select-none pointer-events-none max-w-[90vw] max-h-[85vh] object-contain"
