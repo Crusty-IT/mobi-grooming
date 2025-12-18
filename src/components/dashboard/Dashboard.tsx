@@ -317,7 +317,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 mb-1">Telefon</h3>
-                                    <a href="tel:+48690011396" className="text-pink-500 hover:text-pink-600 transition">
+                                    <a href="tel:+48111111111" className="text-pink-500 hover:text-pink-600 transition">
                                         +48 690 011 396
                                     </a>
                                 </div>
@@ -429,7 +429,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
 
 
             <a
-                href="tel:+48690011396"
+                href="tel:+48111111111"
                 className="fixed bottom-6 right-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition transform hover:scale-110 z-50 flex items-center space-x-3"
             >
                 <Phone className="w-6 h-6" />
