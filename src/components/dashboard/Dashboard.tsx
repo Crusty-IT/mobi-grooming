@@ -86,11 +86,11 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 Kontakt
                             </a>
                             <a
-                                href="tel:+481111111"
+                                href="tel:+48111111111"
                                 className="ml-4 flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
                             >
                                 <Phone className="w-5 h-5" />
-                                <span>1111111</span>
+                                <span>111111111</span>
                             </a>
                         </div>
 

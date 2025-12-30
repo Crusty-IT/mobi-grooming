@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mobi Grooming Salon
 
-## Getting Started
+Kompleksowa witryna internetowa dla salonu pielęgnacji psów "Mobi" w Stargardzie. Aplikacja umożliwia klientom zapoznanie się z ofertą, certyfikatami, opiniami oraz aktualnościami i dostępnością terminów.
 
-First, run the development server:
+## 🚀 O projekcie
 
+Aplikacja została zbudowana w nowoczesnym stosie technologicznym, zapewniającym szybkość działania, responsywność (Mobile First) oraz łatwe zarządzanie treścią przez właściciela bez umiejętności programistycznych.
+
+### Główne funkcjonalności:
+- **Prezentacja usług**: Szczegółowy opis zabiegów wraz z cennikiem.
+- **Dynamiczne aktualności**: System ogłoszeń zarządzany przez CMS.
+- **Kalendarz dostępności**: Informacje o zajętych terminach i urlopach.
+- **Galeria i Certyfikaty**: Wizualna prezentacja efektów pracy i kwalifikacji.
+- **System opinii**: Wyświetlanie rekomendacji od zadowolonych klientów.
+- **Panel administratora**: Łatwa edycja treści poprzez Decap CMS.
+
+## 🛠 Technologie
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Język**: [TypeScript](https://www.typescriptlang.org/)
+- **Stylizacja**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Ikony**: [Lucide React](https://lucide.dev/)
+- **CMS**: [Decap CMS](https://decapcms.org/) (dawniej Netlify CMS)
+- **Deployment**: [Netlify](https://www.netlify.com/)
+
+## 📋 Wymagania systemowe
+
+- **Node.js**: wersja 20.x lub nowsza
+- **npm**: wersja 10.x lub nowsza
+- **System operacyjny**: Windows, macOS lub Linux
+
+## ⚙️ Instalacja i uruchomienie
+
+### 1. Klonowanie repozytorium
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <url-repozytorium>
+cd mobi-grooming
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instalacja zależności
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Uruchomienie trybu deweloperskiego
+```bash
+npm run dev
+```
+Aplikacja będzie dostępna pod adresem: [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Budowanie wersji produkcyjnej
+```bash
+npm run build
+```
 
-## Learn More
+## 📂 Strukturę projektu
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` - Główne ścieżki i layouty aplikacji (Next.js App Router).
+- `src/components/` - Komponenty React podzielone na sekcje (Dashboard, Gallery, Opinions itp.).
+- `src/content/` - Lokalna treść Markdown (np. ogłoszenia).
+- `public/` - Pliki statyczne, obrazy oraz konfiguracja panelu administratora (`/admin`).
+- `scripts/` - Skrypty pomocnicze (np. `run-dev.ps1`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Aplikacja jest skonfigurowana pod platformę **Netlify**. Plik `netlify.toml` zawiera niezbędne instrukcje dotyczące budowania i przekierowań. Każdy push do głównej gałęzi (main) powoduje automatyczne przebudowanie i wdrożenie aplikacji.
 
-## Deploy on Vercel
+## 📖 Dokumentacja szczegółowa
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Więcej informacji znajdziesz w folderze `docs/`:
+- [Architektura](docs/architecture.md)
+- [Komponenty](docs/components.md)
+- [Konfiguracja CMS](docs/firebase.md)
+- [Instrukcja instalacji](docs/setup.md)
+- [Przewodnik dewelopera](docs/development.md)
