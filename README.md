@@ -1,75 +1,52 @@
-# Mobi Grooming Salon
+# Mobi Salonik Pielęgnacji Psów
 
-Kompleksowa witryna internetowa dla salonu pielęgnacji psów "Mobi" w Stargardzie. Aplikacja umożliwia klientom zapoznanie się z ofertą, certyfikatami, opiniami oraz aktualnościami i dostępnością terminów.
+Profesjonalna strona internetowa dla salonu groomingu "Mobi", zbudowana w technologii Next.js i zarządzana za pomocą Netlify CMS.
 
-## 🚀 O projekcie
+## 🌟 Główne funkcjonalności
 
-Aplikacja została zbudowana w nowoczesnym stosie technologicznym, zapewniającym szybkość działania, responsywność (Mobile First) oraz łatwe zarządzanie treścią przez właściciela bez umiejętności programistycznych.
+- **Dashboard**: Interaktywna strona główna z najważniejszymi informacjami.
+- **Kalendarz Dostępności**: Informacje o wolnych terminach i dniach niedostępnych.
+- **Galeria**: Prezentacja efektów pracy salonu.
+- **Opinie**: System wyświetlania opinii zadowolonych klientów.
+- **Certyfikaty**: Prezentacja kwalifikacji i ukończonych kursów.
+- **System CMS**: Łatwe zarządzanie treścią ogłoszeń i kalendarza przez Netlify CMS.
+- **Responsywność**: W pełni dostosowana do urządzeń mobilnych.
 
-### Główne funkcjonalności:
-- **Prezentacja usług**: Szczegółowy opis zabiegów wraz z cennikiem.
-- **Dynamiczne aktualności**: System ogłoszeń zarządzany przez CMS.
-- **Kalendarz dostępności**: Informacje o zajętych terminach i urlopach.
-- **Galeria i Certyfikaty**: Wizualna prezentacja efektów pracy i kwalifikacji.
-- **System opinii**: Wyświetlanie rekomendacji od zadowolonych klientów.
-- **Panel administratora**: Łatwa edycja treści poprzez Decap CMS.
+## 🛠️ Wymagania systemowe
 
-## 🛠 Technologie
+- Node.js 20.x lub nowszy
+- npm 10.x lub nowszy
+- Konto na Netlify (dla hostingu i CMS)
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Język**: [TypeScript](https://www.typescriptlang.org/)
-- **Stylizacja**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Ikony**: [Lucide React](https://lucide.dev/)
-- **CMS**: [Decap CMS](https://decapcms.org/) (dawniej Netlify CMS)
-- **Deployment**: [Netlify](https://www.netlify.com/)
+## 🚀 Szybki start
 
-## 📋 Wymagania systemowe
+1. **Sklonuj repozytorium:**
+   ```bash
+   git clone https://github.com/user/mobi-grooming.git
+   cd mobi-grooming
+   ```
 
-- **Node.js**: wersja 20.x lub nowsza
-- **npm**: wersja 10.x lub nowsza
-- **System operacyjny**: Windows, macOS lub Linux
+2. **Zainstaluj zależności:**
+   ```bash
+   npm install
+   ```
 
-## ⚙️ Instalacja i uruchomienie
+3. **Uruchom wersję deweloperską:**
+   ```bash
+   npm run dev
+   ```
 
-### 1. Klonowanie repozytorium
-```bash
-git clone <url-repozytorium>
-cd mobi-grooming
-```
+4. **Otwórz w przeglądarce:**
+   Aplikacja będzie dostępna pod adresem [http://localhost:3000](http://localhost:3000).
 
-### 2. Instalacja zależności
-```bash
-npm install
-```
+## 📚 Dokumentacja szczegółowa
 
-### 3. Uruchomienie trybu deweloperskiego
-```bash
-npm run dev
-```
-Aplikacja będzie dostępna pod adresem: [http://localhost:3000](http://localhost:3000)
-
-### 4. Budowanie wersji produkcyjnej
-```bash
-npm run build
-```
-
-## 📂 Strukturę projektu
-
-- `src/app/` - Główne ścieżki i layouty aplikacji (Next.js App Router).
-- `src/components/` - Komponenty React podzielone na sekcje (Dashboard, Gallery, Opinions itp.).
-- `src/content/` - Lokalna treść Markdown (np. ogłoszenia).
-- `public/` - Pliki statyczne, obrazy oraz konfiguracja panelu administratora (`/admin`).
-- `scripts/` - Skrypty pomocnicze (np. `run-dev.ps1`).
-
-## 🌐 Deployment
-
-Aplikacja jest skonfigurowana pod platformę **Netlify**. Plik `netlify.toml` zawiera niezbędne instrukcje dotyczące budowania i przekierowań. Każdy push do głównej gałęzi (main) powoduje automatyczne przebudowanie i wdrożenie aplikacji.
-
-## 📖 Dokumentacja szczegółowa
-
-Więcej informacji znajdziesz w folderze `docs/`:
-- [Architektura](docs/architecture.md)
-- [Komponenty](docs/components.md)
-- [Konfiguracja CMS](docs/firebase.md)
-- [Instrukcja instalacji](docs/setup.md)
-- [Przewodnik dewelopera](docs/development.md)
+- [Instalacja](docs/INSTALLATION.md) - Szczegółowy proces setupu.
+- [Architektura](docs/ARCHITECTURE.md) - Budowa systemu i przepływ danych.
+- [Konfiguracja](docs/CONFIGURATION.md) - Zmienne środowiskowe i pliki konfiguracyjne.
+- [API & Dane](docs/API.md) - Struktura danych i interfejsy.
+- [Development](docs/DEVELOPMENT.md) - Przewodnik dla programistów.
+- [Deployment](docs/DEPLOYMENT.md) - Instrukcja wdrażania na produkcję.
+- [Contributing](docs/CONTRIBUTING.md) - Jak pomóc w rozwoju projektu.
+- [FAQ](docs/FAQ.md) - Najczęstsze pytania i odpowiedzi.
+- [Changelog](docs/CHANGELOG.md) - Historia zmian.

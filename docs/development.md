@@ -1,57 +1,61 @@
-# Przewodnik Dewelopera
+# Development Guide
 
-Witaj w zespole deweloperskim Mobi Grooming! Ten dokument pomoże Ci zrozumieć konwencje i procesy stosowane w tym projekcie.
+Witaj w przewodniku dla programistów projektu Mobi Grooming!
 
-## Jak dodawać nowe funkcjonalności?
+## 💻 Setup środowiska deweloperskiego
 
-### Nowa sekcja na stronie
-1.  Utwórz nowy folder w `src/components/`.
-2.  Stwórz plik komponentu (np. `MySection.tsx`) i dodaj na początku `'use client'`.
-3.  Zaimportuj i dodaj komponent w `src/components/dashboard/Dashboard.tsx`.
-4.  Jeśli sekcja wymaga linku w nawigacji, zaktualizuj menu w `Dashboard.tsx`.
+1. Zainstaluj **Node.js 20+**.
+2. Zainstaluj zależności: `npm install`.
+3. Uruchom serwer deweloperski: `npm run dev`.
+4. (Opcjonalnie) Uruchom Netlify Dev, aby testować przekierowania: `npx netlify dev`.
 
-### Nowe pole w CMS
-1.  Otwórz `public/admin/config.yml`.
-2.  Znajdź odpowiednią kolekcję (np. `announcements`).
-3.  Dodaj nowe pole do listy `fields` (np. `{ label: "Autor", name: "author", widget: "string" }`).
-4.  Zaktualizuj typy TypeScript w miejscach, gdzie te dane są używane (np. w `src/app/page.tsx` oraz `src/components/informations/Informations.tsx`).
+## 📂 Struktura projektu
 
-## Struktura kodu i konwencje
+- `src/app/`: App Router Next.js (strony i layouty).
+- `src/components/`: Komponenty React (podzielone na sekcje Dashboardu).
+  - `certificates/`: Sekcja certyfikatów.
+  - `dashboard/`: Główny kontener i logika strony głównej.
+  - `gallery/`: Komponent galerii zdjęć.
+  - `informations/`: Informacje o salonie.
+  - `opinions/`: Sekcja opinii klientów.
+- `src/content/`: Pliki Markdown zarządzane przez CMS.
+- `public/`: Statyczne zasoby (zdjęcia, ikony, dane JSON).
 
--   **TypeScript**: Obowiązkowe typowanie propsów i stanów. Unikaj używania typu `any`.
--   **Komponenty**: Stosujemy komponenty funkcyjne z Hookami.
--   **Nazewnictwo**:
-    -   Foldery i pliki komponentów: `PascalCase` (np. `AvailabilityCalendar.tsx`).
-    -   Zmienne i funkcje: `camelCase`.
-    -   Stałe: `UPPER_SNAKE_CASE`.
--   **Stylizacja**: Wyłącznie **Tailwind CSS**. Unikaj pisania surowego CSS, chyba że jest to absolutnie konieczne (np. specyficzne animacje).
+## 🎨 Coding Standards i Konwencje
 
-## Przepływ danych i zarządzanie stanem
+- **TypeScript**: Używamy silnego typowania dla wszystkich komponentów i funkcji.
+- **Komponenty**: Preferujemy komponenty funkcyjne z Hookami.
+- **Stylizacja**: Wyłącznie Tailwind CSS. Unikamy pisania surowego CSS w plikach `.css`.
+- **Nazewnictwo**: 
+  - Komponenty: `PascalCase` (np. `DashboardCard.tsx`).
+  - Funkcje/Zmienne: `camelCase`.
+  - Pliki pomocnicze: `kebab-case`.
 
--   **Stan globalny**: Ze względu na prostotę aplikacji, nie używamy Reduxa ani Context API do danych z CMS. Dane są pobierane w `page.tsx` (ogłoszenia) i przekazywane w dół lub pobierane lokalnie w komponencie (kalendarz).
--   **Zarządzanie stanem lokalnym**: `useState` i `useMemo` są wystarczające dla większości interakcji.
--   **Dane z CMS**: Pamiętaj, że zmiany w CMS są widoczne dopiero po przebudowaniu aplikacji na Netlify (CI/CD).
+## 🔄 Proces developmentu
 
-## Testowanie lokalne
+1. Utwórz nową gałąź (branch) dla swojej funkcjonalności: `git checkout -b feature/nowa-funkcja`.
+2. Wprowadź zmiany.
+3. Sprawdź, czy projekt się buduje: `npm run build`.
+4. Zacommituj zmiany zgodnie z konwencją [Conventional Commits](https://www.conventionalcommits.org/).
+5. Utwórz Pull Request do gałęzi `main`.
 
-1.  **Tryb deweloperski**:
-    ```bash
-    npm run dev
-    ```
-    Sprawdź responsywność w narzędziach deweloperskich przeglądarki (F12) dla różnych rozmiarów ekranu.
+## 🧪 Jak uruchomić testy
 
-2.  **Symulacja produkcji**:
-    Zawsze przed pushem sprawdź czy projekt się buduje:
-    ```bash
-    npm run build
-    ```
+Obecnie projekt koncentruje się na warstwie wizualnej. Aby dodać i uruchomić testy (np. Vitest lub Jest), należy:
+1. Zainstalować odpowiednie pakiety.
+2. Dodać skrypt `"test": "vitest"` w `package.json`.
+3. Uruchomić: `npm test`.
 
-3.  **Testowanie CMS**:
-    Możesz uruchomić lokalny serwer Decap CMS, aby testować zmiany w konfiguracji `config.yml` bez wysyłania zmian do Git. Szczegóły znajdziesz w dokumentacji Decap CMS pod hasłem "Local Backend".
+## ✨ Jak dodać nową funkcjonalność
 
-## Znane problemy i do zrobienia (Backlog)
+### Przykład: Dodanie nowej sekcji "Usługi"
+1. Utwórz katalog `src/components/services/`.
+2. Stwórz plik `Services.tsx` z komponentem React.
+3. Zaimportuj i dodaj `<Services />` w `src/components/dashboard/Dashboard.tsx`.
+4. Jeśli sekcja ma być edytowalna w CMS:
+   - Dodaj nową kolekcję w `public/admin/config.yml`.
+   - Stwórz odpowiedni folder na dane w `src/content/`.
+   - Zaktualizuj logikę pobierania danych w `src/app/page.tsx`.
 
--   [ ] **Optymalizacja obrazów**: Przejście na `next/image` dla lepszej wydajności. Obecnie używane są linki zewnętrzne do GitHub.
--   [ ] **Wielojęzyczność**: Dodanie obsługi i18n, jeśli salon planuje obsługę klientów zagranicznych.
--   [ ] **Testy**: Dodanie testów E2E (np. Playwright) dla kluczowych ścieżek użytkownika.
--   [ ] **SEO**: Rozbudowa metadanych dla poszczególnych sekcji.
+---
+[Wróć do strony głównej](../README.md)
