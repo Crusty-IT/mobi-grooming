@@ -23,7 +23,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Crusty-IT/mobi-grooming.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/Shellty-IT/mobi-grooming.git&quot;,
     &quot;accountId&quot;: &quot;b8acc543-5eed-4af5-9af5-d9af009eda07&quot;
   }
 }</component>
@@ -125,6 +125,8 @@
       <workItem from="1767125296415" duration="330000" />
       <workItem from="1769219859756" duration="2731000" />
       <workItem from="1771447748552" duration="318000" />
+      <workItem from="1771448327810" duration="1399000" />
+      <workItem from="1771470579564" duration="156000" />
     </task>
     <servers />
   </component>

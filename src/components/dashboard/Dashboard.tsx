@@ -83,11 +83,11 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 Kontakt
                             </a>
                             <a
-                                href="tel:+48111111111"
+                                href="tel:+48690011396"
                                 className="ml-4 flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
                             >
                                 <Phone className="w-5 h-5" />
-                                <span>111111111</span>
+                                <span>690011396</span>
                             </a>
                         </div>
 
@@ -124,11 +124,11 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 Kontakt
                             </a>
                             <a
-                                href="tel:+48111111111"
+                                href="tel:+48690011396"
                                 className="flex items-center justify-center space-x-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-3 rounded-full font-bold mt-4"
                             >
                                 <Phone className="w-5 h-5" />
-                                <span>111111111</span>
+                                <span>690011396</span>
                             </a>
                         </div>
                     )}
@@ -157,7 +157,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 i profesjonalizmu.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="tel:+48111111111" className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                                <a href="tel:+48690011396" className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
                                     <Phone className="w-5 h-5" />
                                     <span>Umów wizytę</span>
                                 </a>
@@ -311,8 +311,8 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 mb-1">Telefon</h3>
-                                    <a href="tel:+48111111111" className="text-pink-500 hover:text-pink-600 transition">
-                                        +48 111 111 111
+                                    <a href="tel:+48690011396" className="text-pink-500 hover:text-pink-600 transition">
+                                        +48 690 011 396
                                     </a>
                                 </div>
                             </div>
@@ -400,7 +400,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                     <div className="relative h-4 w-24">
 
                                         <img
-                                            src="https://shellty-it.github.io/favicon-32x32.png"
+                                            src="https://shellty-it.github.io/android-chrome-192x192.png"
                                             alt="Crusty IT Logo"
                                             className="absolute top-1/2 left-0 -translate-y-1/2 h-15 w-auto"
                                         />
@@ -423,7 +423,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
 
 
             <a
-                href="tel:+48111111111"
+                href="tel:+48690011396"
                 className="fixed bottom-6 right-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition transform hover:scale-110 z-50 flex items-center space-x-3"
             >
                 <Phone className="w-6 h-6" />
